@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone 16 - Apple's Latest Innovation</title>
+    <style>
+        :root {
+            --primary: #0071e3;
+            --secondary: #86868b;
+            --dark: #1d1d1f;
+            --light: #f5f5f7;
+            --accent: #ff3b30;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .hero {
+            height: 80vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://static.independent.co.uk/2024/09/18/13/iPhone16-hero-indybest.jpg?width=1200');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #0062c3;
+            transform: scale(1.05);
+        }
+        
+        section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .model-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .model-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .model-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .model-info {
+            padding: 1.5rem;
+        }
+        
+        .model-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .model-price {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .model-features {
+            list-style: none;
+        }
+        
+        .model-features li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .model-features li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .features {
+            background-color: white;
+        }
+        
+        .feature-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .feature {
+            flex: 1 1 300px;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background-color: var(--light);
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover {
+            transform: scale(1.05);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .specs {
+            background-color: var(--light);
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .specs-table th, .specs-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .specs-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .specs-table tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .colors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.2);
+        }
+        
+        .gallery {
+            background-color: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 300px;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        .chart-container {
+            margin-top: 2rem;
+            height: 300px;
+            position: relative;
+        }
+        
+        .bar {
+            position: absolute;
+            bottom: 0;
+            width: 60px;
+            background-color: var(--primary);
+            border-radius: 5px 5px 0 0;
+            transition: height 1s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .bar-label {
+            margin-top: 10px;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">iPhone 16</div>
+            <div class="nav-links" id="navLinks">
+                <a href="#models">Models</a>
+                <a href="#features">Features</a>
+                <a href="#specs">Specs</a>
+                <a href="#gallery">Gallery</a>
+            </div>
+            <div class="hamburger" id="hamburger">☰</div>
+        </nav>
+    </header>
+    
+    <div class="hero">
+        <h1>iPhone 16</h1>
+        <p>Introducing the next generation of iPhone with Apple Intelligence, Camera Control Button, and more.</p>
+        <button class="cta-button">Learn More</button>
+    </div>
+    
+    <section id="models">
+        <h2 class="section-title">iPhone 16 Models</h2>
+        <div class="models-grid">
+            <div class="model-card">
+                <img src="https://istyle.bg/media/catalog/product/i/p/iphone_16_pink_pdp_image_position_5__wwen_t_2_1.jpg" alt="iPhone 16" class="model-image">
+                <div class="model-info">
+                    <h3 class="model-name">iPhone 16</h3>
+                    <p class="model-price">Starting from $799</p>
+                    <ul class="model-features">
+                        <li>6.1-inch display</li>
+                        <li>A18 Chip</li>
+                        <li>Improved Dual Camera</li>
+                        <li>Aluminum and Glass design</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="model-card">
+                <img src="https://media.wired.com/photos/66ee1eaed55aa1e3e813816d/master/w_1600%2Cc_limit/Apple-iPhone-16-vs-iPhone-16-Plus-(pink)-(blue)-Reviewer-Photo-SOURCE-Julian-Chokkattu.jpg" alt="iPhone 16 Plus" class="model-image">
+                <div class="model-info">
+                    <h3 class="model-name">iPhone 16 Plus</h3>
+                    <p class="model-price">Starting from $899</p>
+                    <ul class="model-features">
+                        <li>6.7-inch display</li>
+                        <li>A18 Chip</li>
+                        <li>Improved Dual Camera</li>
+                        <li>Longer battery life</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="model-card">
+                <img src="https://expercom.com/cdn/shop/files/iPhone_16_Pro_Max_Desert_Titanium_PDP_Image_Position_1__en-US.jpg?v=1725980779&width=1920" alt="iPhone 16 Pro" class="model-image">
+                <div class="model-info">
+                    <h3 class="model-name">iPhone 16 Pro</h3>
+                    <p class="model-price">Starting from $999</p>
+                    <ul class="model-features">
+                        <li>6.3-inch display</li>
+                        <li>A18 Pro Chip</li>
+                        <li>Triple Camera with 48MP main</li>
+                        <li>Titanium design</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="model-card">
+                <img src="https://static.independent.co.uk/2024/09/18/13/iPhone16-hero-indybest.jpg?width=1200" alt="iPhone 16 Pro Max" class="model-image">
+                <div class="model-info">
+                    <h3 class="model-name">iPhone 16 Pro Max</h3>
+                    <p class="model-price">Starting from $1199</p>
+                    <ul class="model-features">
+                        <li>6.9-inch display</li>
+                        <li>A18 Pro Chip</li>
+                        <li>Triple Camera with 5x optical zoom</li>
+                        <li>Longest battery life</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="features" class="features">
+        <h2 class="section-title">Key Features</h2>
+        <div class="feature-container">
+            <div class="feature">
+                <div class="feature-icon">🧠</div>
+                <h3>Apple Intelligence</h3>
+                <p>Advanced AI features integrated throughout iOS 18 for smarter interactions and personalized experiences.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">📸</div>
+                <h3>Camera Control Button</h3>
+                <p>New dedicated button for quick camera access and enhanced photography controls.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Faster Charging</h3>
+                <p>MagSafe charging up to 25W for quicker power-ups when you need it most.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <h3>Action Button</h3>
+                <p>Customizable button for quick access to your favorite features and functions.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🔋</div>
+                <h3>Longer Battery Life</h3>
+                <p>Enhanced battery performance for all-day use, even with demanding tasks.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">📶</div>
+                <h3>Wi-Fi 7</h3>
+                <p>The latest Wi-Fi standard for ultra-fast wireless connectivity.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="specs" class="specs">
+        <h2 class="section-title">Specifications</h2>
+        <table class="specs-table">
+            <tr>
+                <th>Model</th>
+                <th>Display</th>
+                <th>Processor</th>
+                <th>Storage Options</th>
+                <th>Camera</th>
+                <th>Design</th>
+            </tr>
+            <tr>
+                <td>iPhone 16</td>
+                <td>6.1-inch</td>
+                <td>A18 Chip</td>
+                <td>128GB, 256GB, 512GB</td>
+                <td>Improved Dual Camera</td>
+                <td>Aluminum & Glass</td>
+            </tr>
+            <tr>
+                <td>iPhone 16 Plus</td>
+                <td>6.7-inch</td>
+                <td>A18 Chip</td>
+                <td>128GB, 256GB, 512GB</td>
+                <td>Improved Dual Camera</td>
+                <td>Aluminum & Glass</td>
+            </tr>
+            <tr>
+                <td>iPhone 16 Pro</td>
+                <td>6.3-inch</td>
+                <td>A18 Pro Chip</td>
+                <td>128GB, 256GB, 512GB, 1TB</td>
+                <td>Triple Camera with 48MP main</td>
+                <td>Titanium</td>
+            </tr>
+            <tr>
+                <td>iPhone 16 Pro Max</td>
+                <td>6.9-inch</td>
+                <td>A18 Pro Chip</td>
+                <td>256GB, 512GB, 1TB</td>
+                <td>Triple Camera with 5x optical zoom</td>
+                <td>Titanium</td>
+            </tr>
+        </table>
+        
+        <h3 style="margin-top: 2rem;">Available Colors</h3>
+        <div>
+            <p>iPhone 16 & 16 Plus:</p>
+            <div class="colors">
+                <div class="color-option" style="background-color: #000000;" title="Black"></div>
+                <div class="color-option" style="background-color: #ffffff; border: 1px solid #ddd;" title="White"></div>
+                <div class="color-option" style="background-color: #ffc0cb;" title="Pink"></div>
+                <div class="color-option" style="background-color: #008080;" title="Teal"></div>
+                <div class="color-option" style="background-color: #000080;" title="Ultramarine"></div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 1rem;">
+            <p>iPhone 16 Pro & Pro Max:</p>
+            <div class="colors">
+                <div class="color-option" style="background-color: #2f4f4f;" title="Natural Titanium"></div>
+                <div class="color-option" style="background-color: #d2b48c;" title="Desert Titanium"></div>
+                <div class="color-option" style="background-color: #808080;" title="White Titanium"></div>
+                <div class="color-option" style="background-color: #1a1a1a;" title="Black Titanium"></div>
+            </div>
+        </div>
+        
+        <h3 style="margin-top: 2rem;">Price Comparison</h3>
+        <div class="chart-container">
+            <div class="bar" style="left: 10%; height: 50%; background-color: #0071e3;">
+                $799
+                <span class="bar-label">iPhone 16</span>
+            </div>
+            <div class="bar" style="left: 30%; height: 60%; background-color: #5ac8fa;">
+                $899
+                <span class="bar-label">iPhone 16 Plus</span>
+            </div>
+            <div class="bar" style="left: 50%; height: 70%; background-color: #ff9500;">
+                $999
+                <span class="bar-label">iPhone 16 Pro</span>
+            </div>
+            <div class="bar" style="left: 70%; height: 85%; background-color: #ff2d55;">
+                $1199
+                <span class="bar-label">iPhone 16 Pro Max</span>
+            </div>
+            <div class="bar" style="left: 90%; height: 35%; background-color: #34c759;">
+                $599
+                <span class="bar-label">iPhone 16E</span>
+            </div>
+        </div>
+    </section>
+    
+    <section id="gallery" class="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://static.independent.co.uk/2024/09/18/13/iPhone16-hero-indybest.jpg?width=1200" alt="iPhone 16 Lineup" class="gallery-image">
+            </div>
+            <div class="gallery-item">
+                <img src="https://expercom.com/cdn/shop/files/iPhone_16_Pro_Max_Desert_Titanium_PDP_Image_Position_1__en-US.jpg?v=1725980779&width=1920" alt="iPhone 16 Pro Max" class="gallery-image">
+            </div>
+            <div class="gallery-item">
+                <img src="https://istyle.bg/media/catalog/product/i/p/iphone_16_pink_pdp_image_position_5__wwen_t_2_1.jpg" alt="iPhone 16 Pink" class="gallery-image">
+            </div>
+            <div class="gallery-item">
+                <img src="https://media.wired.com/photos/66ee1eaed55aa1e3e813816d/master/w_1600%2Cc_limit/Apple-iPhone-16-vs-iPhone-16-Plus-(pink)-(blue)-Reviewer-Photo-SOURCE-Julian-Chokkattu.jpg" alt="iPhone 16 and 16 Plus" class="gallery-image">
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <h3>iPhone 16</h3>
+        <p>Released September 20, 2024</p>
+        <div class="footer-links">
+            <a href="#models">Models</a>
+            <a href="#features">Features</a>
+            <a href="#specs">Specs</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+        <p>&copy; 2024 Apple Inc. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Animate bars on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bars = document.querySelectorAll('.bar');
+                        bars.forEach(bar => {
+                            const height = bar.style.height;
+                            bar.style.height = '0';
+                            setTimeout(() => {
+                                bar.style.height = height;
+                            }, 100);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            const chartContainer = document.querySelector('.chart-container');
+            if (chartContainer) {
+                observer.observe(chartContainer);
+            }
+        });
+    </script>
+</body>
+</html>
